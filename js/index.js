@@ -1,3 +1,5 @@
+
+
 // document.getElementById("btnTinhTien").onclick = () => {
 //     console.log("nut tinh tien");
 //      Lấy dữ liệu từ người dùng và lưu trữ
@@ -117,6 +119,11 @@ const giaTriChoSuDung = (thoiGianCho) => {
 };
 
 
+// document.getElementById("btnTinhTien").onclick = () =>{
+//     alert("Vui lòng chọn và nhập đầy đủ thông tin.");
+
+// }
+
 //          Sự kiện click vào btn tính tiền
 document.getElementById("btnTinhTien").onclick = () => {
   let km = document.getElementById("txt-km").value * 1;
@@ -129,14 +136,29 @@ document.getElementById("btnTinhTien").onclick = () => {
   let giaTriCho = kiemTraGiaTienCho(loaiXe);
   let soLanCho = giaTriChoSuDung(cho);
 
+//   alert("Vui lòng chọn và nhập đầy đủ thông tin.");
+
   let tongTien = 0;
+  if(km <= 0){
+    alert("Vui lòng chọn và nhập đầy đủ thông tin.");
+    document.getElementById("divLoi").style.display = "block";
+    document.getElementById("arlert").innerHTML = "Vui lòng chọn và nhập đầy đủ thông tin.";
+    return tongTien;
+  }
+
   if (km <= 1 && km > 0) {
     tongTien = giaTriKmDauTien;
-  } else if (km > 1 && km <= 19) {
+    document.getElementById("divLoi").style.display = "none";
+  }  
+  if (km > 1 && km <= 19) {
     tongTien = giaTriKmDauTien + (km - 1) * giaTriKmTu1Den19;
+    document.getElementById("divLoi").style.display = "none";
   } else {
     tongTien = giaTriKmDauTien + 18 * giaTriKmTu1Den19 + (km - 19) * giaTriKm19TroLen;
+    document.getElementById("divLoi").style.display = "none";
   }
+//   return tongTien;
+
   let giaTienCho = soLanCho * giaTriCho;
   tongTien += giaTienCho;
 
@@ -145,6 +167,7 @@ document.getElementById("btnTinhTien").onclick = () => {
     currency: "VND",
     style: "currency",
   });
+//   return tongTien;
 };
 
 
@@ -164,9 +187,14 @@ document.getElementById("btnHoaDon").onclick = () => {
   let soLanCho = giaTriChoSuDung(cho);
 
   let tongTien = 0;
+  if(km <=0){
+    return tongTien;
+  }
+//   else 
   if (km <= 1 && km > 0) {
     tongTien = giaTriKmDauTien;
-  } else if (km > 1 && km <= 19) {
+  }  
+  if (km > 1 && km <= 19) {
     tongTien = giaTriKmDauTien + (km - 1) * giaTriKmTu1Den19;
   } else {
     tongTien = giaTriKmDauTien + 18 * giaTriKmTu1Den19 + (km - 19) * giaTriKm19TroLen;

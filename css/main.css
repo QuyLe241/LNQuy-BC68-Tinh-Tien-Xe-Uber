@@ -516,6 +516,18 @@ input[type=radio]:checked ~ label{
  #divThanhTien{
   display: none ;
  }
+
+ .classdivLoi {
+  background-color: #e7cc5c;
+  padding: 9px;
+  border-radius: 50px;
+  text-align: center;
+
+ }
+ #divLoi {
+  display: none;
+  color: black;
+ }
  /* End div thanh tien */
 
  /* .modal-header h5 {
