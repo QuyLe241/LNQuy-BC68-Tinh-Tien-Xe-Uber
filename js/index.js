@@ -128,7 +128,12 @@ document.getElementById("btnTinhTien").onclick = () => {
   let giaTriKm19TroLen = kiemTraGiaTienKmTu19TroLen(loaiXe);
   let giaTriCho = kiemTraGiaTienCho(loaiXe);
   let soLanCho = giaTriChoSuDung(cho);
-
+//    
+if(km <= 0){
+  return tongTien;
+  alert("Vui lòng chọn và nhập đầy đủ thông tin.");
+}
+//
   let tongTien = 0;
   if (km <= 1 && km > 0) {
     tongTien = giaTriKmDauTien;
@@ -164,6 +169,11 @@ document.getElementById("btnHoaDon").onclick = () => {
   let soLanCho = giaTriChoSuDung(cho);
 
   let tongTien = 0;
+  //
+  if(km <=0){
+    return tongTien;
+  }
+  //
   if (km <= 1 && km > 0) {
     tongTien = giaTriKmDauTien;
   } else if (km > 1 && km <= 19) {
